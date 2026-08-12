@@ -4,7 +4,8 @@ public class ToggleCase
      * Converts string to array of char
      *
      * @param s the input string
-     * @return a new string on success otherwise null
+     * @return a character array containing the characters of the input,
+        or null if the input is null
      *
      */
     public static char[] stringToChar(String s)
@@ -26,8 +27,7 @@ public class ToggleCase
      * Toggles the case of every english letter in a string.
      *
      * @param s the input string
-     * @return a new string with uppercase letters converted to
-     *         lowercase and vice verse
+     * @return a new string on success otherwise null
      *
      */
 
