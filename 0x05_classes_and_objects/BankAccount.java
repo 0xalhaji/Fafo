@@ -1,18 +1,21 @@
 public class BankAccount
 {
-    private String accountHolder;
+    private String accountNumber;
+    private String owner;
     private double balance;
 
     /**
-     *  Creates a bank with an account holder and initial balance.
+     *  Creates a bank account..
      *
-     *  @param accountHolder the name of the account owner
+     * @param accountNumber the account number
+     *  @param owner the name of the account owner
      *  @param balance the initial account balance
      */
 
-    public BankAccount(String accountHolder, double balance)
+    public BankAccount(String accountNumber, String owner, double balance)
     {
-        this.accountHolder = accountHolder;
+        this.accountNumber = accountNumber;
+        this.owner = owner;
         this.balance = balance;
     }
 
@@ -38,10 +41,37 @@ public class BankAccount
 
     public void withdraw(double amount)
     {
-        if (!(amount > balance) && amount > 0)
+        if (amount <= balance && amount > 0)
         {
             balance -= amount;
         }
+    }
+    /**
+     * Transfers money from this account to another account
+     * 
+     * @param otherAccount the receiving account
+     * @param amount the amount to transfer
+     *
+     */
+
+    public void transferTo(BankAccount otherAccount, double amount)
+    {
+        if (balance >= amount && otherAccount != this && amount > 0)
+        {
+            otherAccount.deposit(amount);
+            balance -= amount;
+        }
+    }
+
+    /**
+     * Deteemines whether this account has more money than another account.
+     *
+     * @param otherAccount the account to compare with
+     * @return true if this account has a greater balance
+     */
+    public boolean hasMoreMoneyThan(BankAccount otherAccount)
+    {
+        return this.balance > otherAccount.balance;
     }
     /**
      * Returns the current account balance.
