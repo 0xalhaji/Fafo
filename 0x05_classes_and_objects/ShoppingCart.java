@@ -75,15 +75,13 @@ public class ShoppingCart
 
     public int getItemCount()
     {
-        int count = 0;
-
         for (Product product : products)
         {
             if (product != null)
             {
-                count++;
+                itemCount++;
             }
         }
-        return count;
+        return itemCount;
     }
 }
